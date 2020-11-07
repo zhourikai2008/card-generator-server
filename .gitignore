@@ -1,0 +1,14 @@
+/.idea/*
+/logs/*
+!/config/cert/
+/config/cert/*
+!/config/cert/cert.pem
+!/public/file/
+/public/file/*
+!/public/file/file
+!/public/file/template/
+!/public/file/template/*
+!/public/file/temp/
+/public/file/temp/*
+!/public/file/temp/temp
+/node_modules/*
