@@ -1,5 +1,5 @@
 // 项目端口
-exports.ServerPort = 8000;
+exports.ServerPort = 8080;
 
 // session  配置
 const SESSION_TIMEOUT = 24 * 60 * 60;   //  Session  过期时间（单位：秒）

@@ -1,10 +1,10 @@
 const RESULT_UTIL = require('../../common/utils/resultutil');
 
-const SERVICE_DEMO = require('../../service/demo');
+const SERVICE_CARD = require('../../service/card');
 
 module.exports = function(router) {
-    router.get('/add', function(req, res) {
-        SERVICE_DEMO.add(req.query).then(function (result) {
+    router.post('/', function(req, res) {
+        SERVICE_CARD.add(req.body).then(function (result) {
             if (result.code !== 0) {
                 res.json(RESULT_UTIL.err(result.msg, 1, '操作失败！'));
                 return;
