@@ -1,16 +1,16 @@
-var express = require('express');
-var path = require('path');
-var favicon = require('serve-favicon');
+const express = require('express');
+const path = require('path');
+const favicon = require('serve-favicon');
 
-var cookieParser = require('cookie-parser');
-var bodyParser = require('body-parser');
-var session = require('express-session');
-var expressValidator = require('express-validator');
-var enrouten = require('express-enrouten');
+const cookieParser = require('cookie-parser');
+const bodyParser = require('body-parser');
+const session = require('express-session');
+const expressValidator = require('express-validator');
+const enrouten = require('express-enrouten');
 
-var CONFIG = require('./config/config');
+const CONFIG = require('./config/config');
 
-var app = express();
+const app = express();
 
 //设置icon
 // app.use(favicon(__dirname + '/public/img/favicon.ico'));
@@ -27,7 +27,7 @@ app.use(bodyParser.urlencoded({extended: true, limit: '100mb'}));
 app.use(expressValidator());
 
 //session配置,配置/web下的请求都有session
-var session_option = {
+const session_option = {
     secret: CONFIG.session.secret,   // 密钥
     resave : true,
     rolling: false,  // 强制在每一个response中都发送session标识符的cookie。
@@ -36,10 +36,10 @@ var session_option = {
 };
 app.use(session(session_option));
 
+app.use(express.static(path.join(__dirname, 'dist')));
+
 app.use('/', require('./interceptor/web').filter);
 app.use('/api', require('./interceptor/api').filter);
-
-app.use(express.static(path.join(__dirname, 'dist')));
 
 //app.set('case sensitive routing', true);
 app.use(enrouten({
@@ -50,7 +50,7 @@ app.use(enrouten({
 app.use(function (req, res, next) {
     //TODO 接口返回时记录log
 
-    var err = new Error('Not Found');
+    const err = new Error('Not Found');
     err.status = 404;
     next(err);
 });

@@ -1,4 +1,4 @@
-var LOG_UTIL = require('./logutil.js');
+const LOG_UTIL = require('./logutil.js');
 
 module.exports.result = function(code, msg, data) {
     if (!msg && code === 0) {
@@ -7,7 +7,7 @@ module.exports.result = function(code, msg, data) {
     if (!data) {
         data = {};
     }
-    var result = {code : code, msg : msg, data : data};
+    const result = {code : code, msg : msg, data : data};
 
     if (result.code !== 0) {
         console.warn('--------------------------------------------------------------------------------------------------------------');
@@ -31,7 +31,7 @@ module.exports.err = function(err, code, msg, data) {
     if (!data) {
         data = {};
     }
-    var result = {code : code, msg : msg, data : data};
+    let result = {code : code, msg : msg, data : data};
 
     if (typeof(err) === 'object'
         && typeof(err.code) === 'number'

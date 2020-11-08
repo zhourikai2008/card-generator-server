@@ -12,3 +12,6 @@
 /public/file/temp/*
 !/public/file/temp/temp
 /node_modules/*
+
+# production
+/dist

@@ -1,11 +1,12 @@
-var log4js = require('log4js');
+const log4js = require('log4js');
+const PATH = require('path');
 
 log4js.configure({
     appenders: {
         accessLogs: {
             type : 'dateFile',
-            filename : '../log/access.log',
-            pattern : '_yyyy-MM-dd',
+            filename : './log/access',
+            pattern : 'yyyy-MM-dd.log',
             alwaysIncludePattern : true,
             maxLogSize : 104857600,
             backups : 10,
@@ -15,8 +16,8 @@ log4js.configure({
         },
         appLogs: {
             type : 'dateFile',
-            filename : '../log/app.log',
-            pattern : '_yyyy-MM-dd',
+            filename : './log/app',
+            pattern : 'yyyy-MM-dd.log',
             alwaysIncludePattern : true,
             maxLogSize : 104857600,
             backups : 10,
